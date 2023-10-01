@@ -42,10 +42,10 @@ I'm going to use the required technologies in the following ways:
 
 For this deliverable I built out the structure of my application using HTML.
 
-* **HTML pages** - TBD
-* **Links** - TBD
-* **Text** - TBD
-* **Images** - TBD
-* **Login** - TBD
-* **Database** - TBD
-* **WebSocket** - TBD
+* **HTML pages** - Three HTML page that represent the ability to play, login, and see the leaderboard.
+* **Links** - The three pages contain links to each other.
+* **Text** - Text representing the current game state and leaderboard info are included.
+* **Images** - I included an image of a hanging.
+* **Login** - Input boxs and submit button for login.
+* **Database** - The leaderboard information represents information pulled from the database.
+* **WebSocket** - The count of deaths, saves, and all time records represent realtime data.
