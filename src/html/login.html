@@ -9,19 +9,31 @@
   <body>
     <header>
       <h1>Hangman</h1>
-
       <div>
         <span>Logged in as: Guest</span>
       </div>
       <nav>
         <menu>
-          <li><a href="./index.html">Play</a></li>
+          <li><a href="index.html">Play</a></li>
           <li><a href="login.html">Login</a></li>
           <li><a href="leaderboard.html">Leaderboard</a></li>
         </menu>
       </nav>
       <hr />
     <header>
+
+    <main>
+      <p>Login to join the leaderboard</p>
+      <form method="get" action="index.html">
+        <label for="name">Username</label>
+        <input type="text" id="name" placeholder="Your username here" />
+        <br />
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Your password here" />
+        <br />
+        <button type="submit">Login</button>
+      </form>
+    </main>
 
     <footer>
       <hr />
