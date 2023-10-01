@@ -37,3 +37,15 @@ I'm going to use the required technologies in the following ways:
 * **Login** - Register and login users. Credentials securely stored in database. Game state, game results, and settings aren't saved unless authenticated. Authentication also allows you to participate in the leaderboard.
 * **WebSocket** - As each user completes their game, their results will automatically appear on other users leaderboards.
 * **React** - Application ported to use the React web framework
+
+## HTML Deliverables
+
+For this deliverable I built out the structure of my application using HTML.
+
+* **HTML pages** - TBD
+* **Links** - TBD
+* **Text** - TBD
+* **Images** - TBD
+* **Login** - TBD
+* **Database** - TBD
+* **WebSocket** - TBD
