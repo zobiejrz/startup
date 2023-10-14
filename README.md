@@ -49,3 +49,14 @@ For this deliverable I built out the structure of my application using HTML.
 * **Login** - Input boxs and submit button for login.
 * **Database** - The leaderboard information represents information pulled from the database.
 * **WebSocket** - The count of deaths, saves, and all time records represent realtime data.
+
+## CSS Deliverables
+
+For this deliverable I properly styled the application into its final appearance.
+
+* **Header, footer, and main content body**
+* **Navigation elements** - Changed the background, updated the link colors, and removed the underlines.
+* **Responsive to window resizing** - Navigation links are collapsed behind a button when the screen gets small and `main` content is centered and aligned within `display: flex;`.
+* **Application elements** - Made good use of whitespace and made sure elements were easily read and distinguishable.
+* **Application text content** - Used consistant fonts that contrast from surrounding elements.
+* **Application images** - Sized image to changed based on view width.
