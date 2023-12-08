@@ -66,5 +66,15 @@ For this deliverable I properly styled the application into its final appearance
 For this deliverable I implemented the base javascript code for the project.
 
 * **Login Support** - Added functionality to the login page and updates the username across the site.
+* **Database+Websocket** - Right now win/loss info is kept in local storage, but will be a real database later (and updated in real time using websockets).
 * **Hangman Gameplay** - Keep track of guessed letters, allow users to submit letters, etc.
-* **Leaderboard** - Updated the leaderboard to reflect future database data and websocket use.
+
+## Service Deliverables
+
+For this deliverable I converted my startup app to a service.
+
+* **Node.js/Express HTTP service** - I didz it.
+* **Static middleware for frontend** - ditto.
+* **Calls to third party end points** - Just for funsies, dad jokes at the bottom of every page.
+* **Backend service endpoints** - Game results can be saved/gotten from service endpoints
+* **Frontend calls service endpoitns** - This is done when finishing a game and when checking out the leaderboard.
