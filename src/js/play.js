@@ -113,9 +113,11 @@ class Game {
       if (this.wrongGuesses >= HangmanStates.length - 1) {
         this.ready = false;
         this.saveScore("failed");
+        alert("Bummer, better luck next time :-(");
       } else if (this.sequence.replace(' ', '').split("").every(c => this.guessedLetters.includes(c))) {
         this.ready = false;
         this.saveScore("won");
+        alert("Good job, you won!");
       }
     }
   }
