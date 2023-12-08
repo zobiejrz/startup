@@ -60,3 +60,11 @@ For this deliverable I properly styled the application into its final appearance
 * **Application elements** - Made good use of whitespace and made sure elements were easily read and distinguishable.
 * **Application text content** - Used consistant fonts that contrast from surrounding elements.
 * **Application images** - Sized image to changed based on view width.
+
+## JavaScript Deliverables
+
+For this deliverable I implemented the base javascript code for the project.
+
+* **Login Support** - Added functionality to the login page and updates the username across the site.
+* **Hangman Gameplay** - Keep track of guessed letters, allow users to submit letters, etc.
+* **Leaderboard** - Updated the leaderboard to reflect future database data and websocket use.
