@@ -1,12 +1,14 @@
-# Hangman
+# Mnemonic Hangman
 
 ## Description deliverable
 
 ### Elevator pitch
 
-Are you looking for a place to show off your vocabulary? Do you ever wish executions were more fun? Hangman, the classic game of letter guessing and capital punishment! Whether you're learning new words, or discovering a penchant for death, Hangman is the perfect game for kids and parents alike!
+Need a new crypto wallet? Want to have fun guessing random BIP-39 passphrases? You shouldn't do either, yet here we are! Enjoy trying to figure out a random (real) crypto wallet passphrase, who knows, maybe you could get rich quick!
 
 ### Design
+
+Here's what I thought it'd look like a while ago:
 
 ![Desktop Hangman View](./images/hangman.png)
 
