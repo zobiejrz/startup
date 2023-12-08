@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hangman</title>
+  <title>Mnemonic Hangman</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -27,7 +27,7 @@
             <a class="nav-link" href="./html/leaderboard.html">Leaderboard</a>
             <a class="nav-link" href="./html/login.html">Login</a>
             <div>
-              <a class="nav-link disabled">Welcome, Guest</a>
+              <a class="nav-link disabled">Welcome, <span id="loggedName">Guest</span></a>
             </div>
           </div>
         </div>
@@ -36,19 +36,50 @@
   </header>
 
   <main>
-    <div>
-      <img
-        src="https://c8.alamy.com/comp/P7B6KJ/lesser-antilles-grenada-french-occupation-17th-century-uprising-of-the-colonists-against-the-tyranny-of-the-governor-sentenced-to-death-by-hanging-engraving-1807-colored-P7B6KJ.jpg" />
+    <pre id="gameState" class="display-linebreak">
+    </pre>
+    <div id="words">
+      <div id="word1">1.</div>
+      <div id="word2">2.</div>
+      <div id="word3">3.</div>
+      <div id="word4">4.</div>
+
+      <div id="word5">5.</div>
+      <div id="word6">6.</div>
+      <div id="word7">7.</div>
+      <div id="word8">8.</div>
+
+      <div id="word9">9.</div>
+      <div id="word10">10.</div>
+      <div id="word11">11.</div>
+      <div id="word12">12.</div>
+
+      <div id="word13">13.</div>
+      <div id="word14">14.</div>
+      <div id="word15">15.</div>
+      <div id="word16">16.</div>
+
+      <div id="word17">17.</div>
+      <div id="word18">18.</div>
+      <div id="word19">19.</div>
+      <div id="word20">20.</div>
+
+      <div id="word21">21.</div>
+      <div id="word22">22.</div>
+      <div id="word23">23.</div>
+      <div id="word24">24.</div>
     </div>
+
     <div>
-      <span>_ _ _ _ _</span>
+      <input type="text" maxlength="1" id="k1" placeholder="?" />
+      <button id="enterbtn" onclick="game.letterButtonPushed()">Guess</button>
     </div>
+
     <div>
-      <span>G H I J K L M N O P Q R S T U V W X Y Z</span>
+      Guessed: <span id="letters"></span>
     </div>
-    <div>
-      <span>A B C D E F</span>
-    </div>
+
+    <button id="resetBtn" onclick="game.reset()">Reset</button>
   </main>
 
   <footer>
@@ -59,6 +90,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+  <script src="./js/play.js"></script>
 </body>
 
 </html>
