@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const DB = require('./database.js');
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
@@ -15,13 +16,27 @@ const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // GetScores
-apiRouter.get('/scores', (_req, res) => {
+apiRouter.get('/scores', async (_req, res) => {
+  const scores = await DB.getHighScores();
+  res.send(scores);
+});
+
+// Get Num Wins
+apiRouter.get('/scores/won', async (_req, res) => {
+  const scores = await DB.getNumWins();
+  res.send(scores);
+});
+
+// Get Num Losses
+apiRouter.get('/scores/failed', async (_req, res) => {
+  const scores = await DB.getNumLoss();
   res.send(scores);
 });
 
 // SubmitScore
-apiRouter.post('/score', (req, res) => {
-  scores = updateScores(req.body, scores);
+apiRouter.post('/score', async (req, res) => {
+  DB.addScore(req.body);
+  const scores = await DB.getHighScores();
   res.send(scores);
 });
 
@@ -33,14 +48,3 @@ app.use((_req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-let scores = [];
-function updateScores(newScore, scores) {
-  scores.push(newScore);
-
-  if (scores.length > 10) {
-    scores.length = 10;
-  }
-
-  return scores;
-}

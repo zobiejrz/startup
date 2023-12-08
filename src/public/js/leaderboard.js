@@ -1,15 +1,64 @@
 async function loadScores() {
-  const response = await fetch("/api/scores");
-  const scores = await response.json();
+  let scores = [];
+  let wins = 0;
+  let loss = 0;
 
+  try {
+    // Get the latest high scores from the service
+    const response = await fetch('/api/scores');
+    scores = await response.json();
+
+    // Save the scores in case we go offline in the future
+    localStorage.setItem('scores', JSON.stringify(scores));
+  } catch {
+    // If there was an error then just use the last saved scores
+    const scoresText = localStorage.getItem('scores');
+    if (scoresText) {
+      scores = JSON.parse(scoresText);
+    }
+  }
+
+  try {
+    // Get the latest high scores from the service
+    const response = await fetch('/api/scores/won');
+    wins = (await response.json()).total;
+
+    // Save the scores in case we go offline in the future
+    localStorage.setItem('wins', JSON.stringify(won));
+  } catch {
+    // If there was an error then just use the last saved scores
+    const winCount = localStorage.getItem('wins');
+    if (winCount) {
+      wins = JSON.parse(winCount);
+    }
+  }
+
+  try {
+    // Get the latest high scores from the service
+    const response = await fetch('/api/scores/failed');
+    loss = (await response.json()).total;
+
+    // Save the scores in case we go offline in the future
+    localStorage.setItem('failed', JSON.stringify(loss));
+  } catch {
+    // If there was an error then just use the last saved scores
+    const lossCount = localStorage.getItem('failed');
+    if (lossCount) {
+      loss = JSON.parse(lossCount);
+    }
+  }
+  const total = loss + wins;
+  console.log("here", loss, wins, total);
+
+
+  displayScores(scores, loss, wins, total);
+}
+
+function displayScores(scores, loss, wins, total) {
   const tableBodyEl = document.querySelector('#scores');
 
-  var total = 0;
-  var wins = 0;
-  var losses = 0;
   if (scores.length) {
     for (const [i, score] of scores.entries()) {
-      total += 1;
       const nameTdEl = document.createElement('td');
       const scoreTdEl = document.createElement('td');
       const dateTdEl = document.createElement('td');
@@ -17,12 +66,6 @@ async function loadScores() {
       nameTdEl.textContent = score.name;
       scoreTdEl.textContent = score.result;
       dateTdEl.textContent = score.date;
-
-      if (score.result == "won") {
-        wins += 1;
-      } else {
-        losses += 1;
-      }
 
       const rowEl = document.createElement('tr');
       rowEl.appendChild(nameTdEl);
@@ -43,7 +86,7 @@ async function loadScores() {
 
   totalTd.textContent = total;
   winsTd.textContent = wins;
-  lossTd.textContent = losses;
+  lossTd.textContent = loss;
 
   statRow.appendChild(totalTd);
   statRow.appendChild(winsTd);
