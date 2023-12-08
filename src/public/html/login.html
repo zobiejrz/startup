@@ -36,20 +36,29 @@
   </header>
 
   <main>
-    <h3>Login to join the leaderboard</h3>
-    <form method="get" action="../index.html">
-      <div class="form-group">
-        <label for="name">Username</label>
-        <input class="form-control form-control-lg" type="text" id="name" placeholder="Your username here" />
-      </div>
-      <br />
-      <div class="form-group ">
-        <label for="password">Password</label>
-        <input class="form-control form-control-lg" type="password" id="password" placeholder="Your password here" />
-      </div>
-      <br />
-      <button class="btn btn-primary" type="submit" onclick="login()">Login</button>
-    </form>
+    <div id="loginControls" style="display: none">
+      <h3>Login to join the leaderboard</h3>
+      <form method="get" action="../index.html">
+        <div class="form-group">
+          <label for="name">Username</label>
+          <input class="form-control form-control-lg" type="text" id="userName" placeholder="Your username here" />
+        </div>
+        <br />
+        <div class="form-group ">
+          <label for="password">Password</label>
+          <input class="form-control form-control-lg" type="password" id="userPassword"
+            placeholder="Your password here" />
+        </div>
+        <br />
+        <button type="button" class="btn btn-primary" onclick="loginUser()">Login</button>
+        <button type="button" class="btn btn-primary" onclick="createUser()">Create</button>
+      </form>
+    </div>
+    <div id="playControls">
+      <h2>Hey, <span id="playerName"></span></h2>
+      <button type="button" class="btn btn-primary" onclick="play()">Play</button>
+      <button type="button" class="btn btn-secondary" onclick="logout()">Logout</button>
+    </div>
   </main>
 
   <footer>
