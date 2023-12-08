@@ -20,7 +20,7 @@ async function loadScores() {
 
   try {
     // Get the latest high scores from the service
-    const response = await fetch('/api/scores/won');
+    const response = await fetch('/api/winnings');
     wins = (await response.json()).total;
 
     // Save the scores in case we go offline in the future
@@ -35,7 +35,7 @@ async function loadScores() {
 
   try {
     // Get the latest high scores from the service
-    const response = await fetch('/api/scores/failed');
+    const response = await fetch('/api/failings');
     loss = (await response.json()).total;
 
     // Save the scores in case we go offline in the future
@@ -48,8 +48,6 @@ async function loadScores() {
     }
   }
   const total = loss + wins;
-  console.log("here", loss, wins, total);
-
 
   displayScores(scores, loss, wins, total);
 }
@@ -75,7 +73,7 @@ function displayScores(scores, loss, wins, total) {
       tableBodyEl.appendChild(rowEl);
     }
   } else {
-    tableBodyEl.innerHTML = '<tr><td colSpan=3>Be the first to score</td></tr>';
+    tableBodyEl.innerHTML = '<tr><td colSpan=3>Login to see the leaderboard</td></tr>';
   }
 
   const statsEl = document.querySelector('#scorestats');

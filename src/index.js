@@ -71,6 +71,18 @@ apiRouter.get('/user/:email', async (req, res) => {
   res.status(404).send({ msg: 'Unknown' });
 });
 
+// Get Num Wins
+apiRouter.get('/winnings', async (_req, res) => {
+  const wins = await DB.getNumWins();
+  res.send(wins);
+});
+
+// Get Num Losses
+apiRouter.get('/failings', async (_req, res) => {
+  const losses = await DB.getNumLoss();
+  res.send(losses);
+});
+
 // secureApiRouter verifies credentials for endpoints
 var secureApiRouter = express.Router();
 apiRouter.use(secureApiRouter);
@@ -86,26 +98,15 @@ secureApiRouter.use(async (req, res, next) => {
 });
 
 // GetScores
-apiRouter.get('/scores', async (_req, res) => {
+secureApiRouter.get('/scores', async (_req, res) => {
   const scores = await DB.getHighScores();
   res.send(scores);
 });
 
-// Get Num Wins
-apiRouter.get('/scores/won', async (_req, res) => {
-  const scores = await DB.getNumWins();
-  res.send(scores);
-});
-
-// Get Num Losses
-apiRouter.get('/scores/failed', async (_req, res) => {
-  const scores = await DB.getNumLoss();
-  res.send(scores);
-});
-
 // SubmitScore
-apiRouter.post('/score', async (req, res) => {
-  DB.addScore(req.body);
+secureApiRouter.post('/score', async (req, res) => {
+  const score = { ...req.body, ip: req.ip };
+  await DB.addScore(score);
   const scores = await DB.getHighScores();
   res.send(scores);
 });
