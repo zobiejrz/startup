@@ -80,3 +80,9 @@ For this deliverable I converted my startup app to a service.
 * **Calls to third party end points** - Just for funsies, dad jokes at the bottom of every page.
 * **Backend service endpoints** - Game results can be saved/gotten from service endpoints
 * **Frontend calls service endpoitns** - This is done when finishing a game and when checking out the leaderboard.
+
+## DB Deliverable
+
+* **MongoDB Atlass database created** - complete
+* **Endpoints for data** - My endpoints now process the data and send it to mongo, which means...
+* **Data is stored in MongoDB**
