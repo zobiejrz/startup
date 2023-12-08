@@ -23,7 +23,7 @@ footer > * {
   font-size: 15pt;
 }
 
-footer > a {
+footer > p > a {
   color: #868686;
   text-decoration: none;
   transition: color 0.4s ease-in;
@@ -93,6 +93,10 @@ body {
 
 #words > * {
   margin: 0 5pt;
+}
+
+#joke {
+  font-size: 10pt;
 }
 
 /* Colors I like from my other site
