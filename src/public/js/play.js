@@ -190,21 +190,33 @@ class Game {
     return localStorage.getItem('userName') ?? 'Mystery player';
   }
 
-  saveScore(score) {
+  async saveScore(result) {
     const userName = this.getPlayerName();
+    const date = new Date().toLocaleDateString();
+    const newScore = {name: userName, result: result, date: date};
+
+    try {
+      const response = await fetch('/api/score', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(newScore),
+      });
+
+      // Store what the service gave us as the high scores
+      const scores = await response.json();
+      localStorage.setItem('scores', JSON.stringify(scores));
+    } catch {
+      // If there was an error then just track scores locally
+      this.updateScoresLocal(newScore);
+    }
+  }
+
+  updateScoresLocal(newScore) {
     let scores = [];
     const scoresText = localStorage.getItem('scores');
     if (scoresText) {
       scores = JSON.parse(scoresText);
     }
-    scores = this.updateScores(userName, score, scores);
-
-    localStorage.setItem('scores', JSON.stringify(scores));
-  }
-
-  updateScores(userName, result, scores) {
-    const date = new Date().toLocaleDateString();
-    const newScore = { name: userName, result: result, date: date };
 
     scores.push(newScore);
 
@@ -212,7 +224,7 @@ class Game {
       scores.length = 10;
     }
 
-    return scores;
+    localStorage.setItem('scores', JSON.stringify(scores));
   }
 }
 

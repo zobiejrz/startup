@@ -1,12 +1,8 @@
-function loadScores() {
-  let scores = [];
-  const scoresText = localStorage.getItem('scores');
-  if (scoresText) {
-    scores = JSON.parse(scoresText);
-  }
+async function loadScores() {
+  const response = await fetch("/api/scores");
+  const scores = await response.json();
 
   const tableBodyEl = document.querySelector('#scores');
-
 
   var total = 0;
   var wins = 0;
@@ -53,9 +49,6 @@ function loadScores() {
   statRow.appendChild(winsTd);
   statRow.appendChild(lossTd);
   statsEl.appendChild(statRow);
-
-
-
 }
 
 function getPlayerName() {
