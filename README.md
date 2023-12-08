@@ -86,3 +86,10 @@ For this deliverable I converted my startup app to a service.
 * **MongoDB Atlass database created** - complete
 * **Endpoints for data** - My endpoints now process the data and send it to mongo, which means...
 * **Data is stored in MongoDB**
+
+## Login Deliverable
+
+* **User registration** - Creates a new account in the database
+* **Existing users** - Stores credentials of returning users
+* **Use MongoDB to store credentials** - Stores both users and game results
+* **Restricts functionality** - Results are not saved and specific leaderboard info is not available without a login.
